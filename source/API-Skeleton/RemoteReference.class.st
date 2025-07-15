@@ -1,40 +1,41 @@
 Class {
-	#name : #RemoteReference,
-	#superclass : #Object,
+	#name : 'RemoteReference',
+	#superclass : 'Object',
 	#instVars : [
 		'selfLocation'
 	],
-	#category : #'API-Skeleton'
+	#category : 'API-Skeleton',
+	#package : 'API-Skeleton'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RemoteReference class >> locatedAt: aUrl [
 
 	^ self new initializeLocatedAt: aUrl
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 RemoteReference >> = anObject [
 
-	^ self equalityChecker
-		compare: #selfLocation;
-		checkAgainst: anObject
+  ^ self equalityChecker
+      compare: #selfLocation;
+      checkAgainst: anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 RemoteReference >> hash [
 
-	^ self selfLocation hash
+  ^ self selfLocation hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RemoteReference >> initializeLocatedAt: aUrl [
 
-	selfLocation := aUrl asString
+  selfLocation := aUrl asString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RemoteReference >> selfLocation [
 
-	^ selfLocation
+  ^ selfLocation
 ]

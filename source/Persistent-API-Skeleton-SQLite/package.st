@@ -1,1 +1,1 @@
-Package { #name : #'Persistent-API-Skeleton-SQLite' }
+Package { #name : 'Persistent-API-Skeleton-SQLite' }

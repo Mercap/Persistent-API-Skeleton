@@ -1,17 +1,18 @@
 Class {
-	#name : #APISkeletonCollectionExtensionsTest,
-	#superclass : #TestCase,
-	#category : #'API-Skeleton-Tests'
+	#name : 'APISkeletonCollectionExtensionsTest',
+	#superclass : 'TestCase',
+	#category : 'API-Skeleton-Tests',
+	#package : 'API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 APISkeletonCollectionExtensionsTest >> testAssociationArrayAsNeoJSON [
 
-	self assert: { 'a' -> 'b' } asNeoJSON a equals: 'b'
+  self assert: { 'a' -> 'b' } asNeoJSON a equals: 'b'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 APISkeletonCollectionExtensionsTest >> testDictionaryAsNeoJSON [
 
-	self assert: { #key -> 'value' } asDictionary asNeoJSON key equals: 'value'
+  self assert: { #key -> 'value' } asDictionary asNeoJSON key equals: 'value'
 ]

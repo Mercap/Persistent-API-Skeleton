@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfPersistentAPISkeleton }
+Package { #name : 'BaselineOfPersistentAPISkeleton' }

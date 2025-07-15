@@ -1,7 +1,7 @@
-Extension { #name : #ZnUrl }
+Extension { #name : 'ZnUrl' }
 
-{ #category : #'*API-Skeleton' }
+{ #category : '*API-Skeleton' }
 ZnUrl >> notEmpty [
 
-	^ self isEmpty not
+  ^ self isEmpty not
 ]

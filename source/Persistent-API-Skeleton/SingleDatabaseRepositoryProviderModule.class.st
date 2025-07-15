@@ -1,59 +1,62 @@
 Class {
-	#name : #SingleDatabaseRepositoryProviderModule,
-	#superclass : #SystemModule,
+	#name : 'SingleDatabaseRepositoryProviderModule',
+	#superclass : 'SystemModule',
 	#instVars : [
 		'rootSystem',
 		'login',
 		'configurationAction'
 	],
-	#category : #'Persistent-API-Skeleton'
+	#category : 'Persistent-API-Skeleton',
+	#package : 'Persistent-API-Skeleton'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SingleDatabaseRepositoryProviderModule class >> toInstallOn: aCompositeSystem usingSessionPoolWith: aDatabaseLogin configuredBy: aConfigurationAction [
 
-	^ self new
-		  initializeToInstallOn: aCompositeSystem
-		  usingSessionPoolWith: aDatabaseLogin
-		  configuredBy: aConfigurationAction
+  ^ self new
+      initializeToInstallOn: aCompositeSystem
+      usingSessionPoolWith: aDatabaseLogin
+      configuredBy: aConfigurationAction
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SingleDatabaseRepositoryProviderModule >> initializeToInstallOn: aCompositeSystem usingSessionPoolWith: aDatabaseLogin configuredBy: aConfigurationAction [
 
-	rootSystem := aCompositeSystem.
-	login := aDatabaseLogin.
-	configurationAction := aConfigurationAction
+  rootSystem := aCompositeSystem.
+  login := aDatabaseLogin.
+  configurationAction := aConfigurationAction
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> name [
 
-	^'Single Database Repository Provider'
+  ^ 'Single Database Repository Provider'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> registerRepositoryProviderSystemForInstallationIn: systems [
 
-	^ self
-		  register: [ 
-			  RepositoryProviderSystem new
-				  register:
-					  ( RDBMSRepositoryProvider usingSessionPoolWith: login configuredBy: configurationAction )
-				  as: #mainDB;
-				  yourself
-			  ]
-		  in: systems
+  ^ self
+      register: [
+          RepositoryProviderSystem new
+            register:
+              ( RDBMSRepositoryProvider
+                  usingSessionPoolWith: login
+                  configuredBy: configurationAction )
+            as: #mainDB;
+            yourself
+        ]
+      in: systems
 ]
 
-{ #category : #accessing }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> rootSystem [
 
 	^ rootSystem
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> systemInterfacesToInstall [
 
-	^#(RepositoryProviderSystem)
+  ^ #( RepositoryProviderSystem )
 ]
