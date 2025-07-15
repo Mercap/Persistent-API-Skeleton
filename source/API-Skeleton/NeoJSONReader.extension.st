@@ -1,15 +1,6 @@
 Extension { #name : 'NeoJSONReader' }
 
 { #category : '*API-Skeleton' }
-NeoJSONReader >> for: schemaName strictDo: block [
-
-  | mapping |
-  mapping := self strictMappingFor: schemaName.
-  block value: mapping.
-  ^ mapping
-]
-
-{ #category : '*API-Skeleton' }
 NeoJSONReader >> mapRemoteReference [
 
   self for: RemoteReference customDo: [ :mapping |
@@ -31,14 +22,4 @@ NeoJSONReader >> mapRemoteReference [
                 do: [ :error | self error: 'Invalid URI' ] )
         ]
     ]
-]
-
-{ #category : '*API-Skeleton' }
-NeoJSONReader >> strictMappingFor: smalltalkClass [
-
-  ^ self mappings at: smalltalkClass ifAbsentPut: [
-        NeoJSONStrictObjectMapping new
-          subjectClass: smalltalkClass;
-          yourself
-      ]
 ]
