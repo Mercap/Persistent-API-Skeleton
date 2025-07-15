@@ -5,20 +5,19 @@ Class {
 	#package : 'Persistent-API-Skeleton-PostgreSQL'
 }
 
-{ #category : 'instance creation' }
+{ #category : 'private' }
 SinglePostgreSQLDatabaseProviderModuleFactory >> databaseLogin [
 
-	| login |
-
-	DatabaseAccessor classForThisPlatform DefaultDriver: P3DatabaseDriver.
-	login := Login new
-		         database: PostgreSQLPlatform new;
-		         host: databaseConfiguration pgHostname;
-		         port: databaseConfiguration pgPort;
-		         username: databaseConfiguration pgUsername;
-		         password: databaseConfiguration pgPassword;
-		         databaseName: databaseConfiguration pgDatabaseName;
-		         setSSL;
-		         yourself.
-	^ login
+  | login |
+  DatabaseAccessor classForThisPlatform DefaultDriver: P3DatabaseDriver.
+  login := Login new
+             database: PostgreSQLPlatform new;
+             host: databaseConfiguration pgHostname;
+             port: databaseConfiguration pgPort;
+             username: databaseConfiguration pgUsername;
+             password: databaseConfiguration pgPassword;
+             databaseName: databaseConfiguration pgDatabaseName;
+             setSSL;
+             yourself.
+  ^ login
 ]

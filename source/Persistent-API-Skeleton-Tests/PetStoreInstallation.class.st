@@ -1,9 +1,6 @@
 Class {
 	#name : 'PetStoreInstallation',
 	#superclass : 'SystemInstallation',
-	#instVars : [
-		'application'
-	],
 	#category : 'Persistent-API-Skeleton-Tests',
 	#package : 'Persistent-API-Skeleton-Tests'
 }
@@ -11,27 +8,23 @@ Class {
 { #category : 'instance creation' }
 PetStoreInstallation class >> installedBy: anApplication [
 
-^self new initializeInstalledBy: anApplication
+  ^ self new
 ]
 
 { #category : 'installing' }
-PetStoreInstallation >> beAwareOfShutDownOf: aCompositeSystem [ 
+PetStoreInstallation >> beAwareOfShutDownOf: aCompositeSystem [
+
+  
 ]
 
-{ #category : 'installing' }
-PetStoreInstallation >> initializeInstalledBy: anApplication [
-
-application := anApplication
-]
-
-{ #category : 'installing' }
+{ #category : 'accessing' }
 PetStoreInstallation >> modulesToInstall [
 
 	^#()
 ]
 
-{ #category : 'installing' }
+{ #category : 'accessing' }
 PetStoreInstallation >> name [
 
-	^'Pet Store' 
+  ^ 'Pet Store'
 ]

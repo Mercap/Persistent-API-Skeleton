@@ -8,11 +8,11 @@ Class {
 { #category : 'tests' }
 APISkeletonCollectionExtensionsTest >> testAssociationArrayAsNeoJSON [
 
-	self assert: { 'a' -> 'b' } asNeoJSON a equals: 'b'
+  self assert: { 'a' -> 'b' } asNeoJSON a equals: 'b'
 ]
 
 { #category : 'tests' }
 APISkeletonCollectionExtensionsTest >> testDictionaryAsNeoJSON [
 
-	self assert: { #key -> 'value' } asDictionary asNeoJSON key equals: 'value'
+  self assert: { #key -> 'value' } asDictionary asNeoJSON key equals: 'value'
 ]

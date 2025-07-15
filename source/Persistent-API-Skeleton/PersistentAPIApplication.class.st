@@ -126,48 +126,48 @@ PersistentAPIApplication class >> stargateConfigurationParameters [
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> basicStartWithin: context [
 
-	self installAndStartRootSystem.
-	self handleOptionsIn: context.
-	super basicStartWithin: context
+  self installAndStartRootSystem.
+  self handleOptionsIn: context.
+  super basicStartWithin: context
 ]
 
 { #category : 'private - activation/deactivation' }
-PersistentAPIApplication >> basicStop [ 
+PersistentAPIApplication >> basicStop [
 
-	super basicStop.
-	LogRecord emitInfo: 'Stopping system'.
-	rootSystem ifNotNil: #shutDown
+  super basicStop.
+  LogRecord emitInfo: 'Stopping system'.
+  rootSystem ifNotNil: #shutDown
 ]
 
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> configureAllowedOriginsTo: api [
 
-	self stargateConfiguration allowedOrigins value: api.
-	
+  self stargateConfiguration allowedOrigins value: api
 ]
 
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> createAPI [
 
-	| api |
-	api := super createAPI.
-	self configureAllowedOriginsTo: api.
-	^ api
+  | api |
+  api := super createAPI.
+  self configureAllowedOriginsTo: api.
+  ^ api
 ]
 
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> handleOptionsIn: context [
+  "I'm a template method. Subclasses can re-implement me to handle options."
 
-	"I'm a template method. Subclasses can re-implement me to handle options."
+  
 ]
 
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> installAndStartRootSystem [
 
-	LogRecord emitInfo: 'Installing system'.
-	rootSystem := self installation install: self class version.
-	LogRecord emitInfo: 'Starting up system'.
-	rootSystem startUp
+  LogRecord emitInfo: 'Installing system'.
+  rootSystem := self installation install: self class version.
+  LogRecord emitInfo: 'Starting up system'.
+  rootSystem startUp
 ]
 
 { #category : 'private - accessing' }
@@ -182,37 +182,38 @@ PersistentAPIApplication >> saganConfiguration [
 	^ self configuration sagan
 ]
 
-{ #category : 'private - building' }
+{ #category : 'private - accessing' }
 PersistentAPIApplication >> serviceDiscoveryHealthCheckInterval [
 
-	^ self stargateConfiguration serviceDiscoveryHealthcheckIntervalMs milliSeconds
+  ^ self stargateConfiguration serviceDiscoveryHealthcheckIntervalMs milliSeconds
 ]
 
-{ #category : 'private - building' }
+{ #category : 'private - accessing' }
 PersistentAPIApplication >> serviceDiscoveryHealthCheckTimeout [
 
 	^ self stargateConfiguration serviceDiscoveryTimeoutMs milliSeconds
 ]
 
-{ #category : 'private - building' }
+{ #category : 'private - accessing' }
 PersistentAPIApplication >> serviceDiscoveryTimeSlotBetweenRetries [
 
 	^ self stargateConfiguration serviceDiscoveryTimeSlotBetweenRetriesInMs milliSeconds
 ]
 
-{ #category : 'private - building' }
+{ #category : 'error handling' }
 PersistentAPIApplication >> stackTraceDumpFileReference [
 
-	^ self class logsDirectory / ( '<1s>-<2s>' expandMacrosWith: self class commandName
-		    with: ( ( ZTimestampFormat fromString: '2001-02-03_16-05-06.07' ) format: ZTimestamp now ) )
+  ^ self class logsDirectory / ( '<1s>-<2s>'
+        expandMacrosWith: self class commandName
+        with: ( ( ZTimestampFormat fromString: '2001-02-03_16-05-06.07' ) format: ZTimestamp now ) )
 ]
 
-{ #category : 'private - building' }
+{ #category : 'error handling' }
 PersistentAPIApplication >> stackTraceDumper [
 
-	^ CompositeStackTraceDumper composingAll: {
-			  ( StackTraceTextDumper on: [ :dumpAction |
-				    ( self stackTraceDumpFileReference withExtension: 'log' ) writeStreamDo: dumpAction ] ).
-			  ( StackTraceBinarySerializer on: [ :dumpAction |
-				    ( self stackTraceDumpFileReference withExtension: 'fuel' ) binaryWriteStreamDo: dumpAction ] ) }
+  ^ CompositeStackTraceDumper composingAll: {
+        StackTraceTextDumper on: [ :dumpAction |
+            ( self stackTraceDumpFileReference withExtension: 'log' ) writeStreamDo: dumpAction ] .
+        StackTraceBinarySerializer on: [ :dumpAction |
+            ( self stackTraceDumpFileReference withExtension: 'fuel' ) binaryWriteStreamDo: dumpAction ] }
 ]

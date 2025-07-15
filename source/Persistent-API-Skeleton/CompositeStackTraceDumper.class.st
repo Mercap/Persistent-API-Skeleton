@@ -11,17 +11,17 @@ Class {
 { #category : 'instance creation' }
 CompositeStackTraceDumper class >> composingAll: dumpers [
 
-	^ self new initializeComposingAll: dumpers
+  ^ self new initializeComposingAll: dumpers
 ]
 
-{ #category : 'initialization' }
+{ #category : 'error handling' }
 CompositeStackTraceDumper >> dumpStackTraceFor: anError [
 
-	dumpers do: [ :dumper | dumper dumpStackTraceFor: anError ]
+  dumpers do: [ :dumper | dumper dumpStackTraceFor: anError ]
 ]
 
 { #category : 'initialization' }
 CompositeStackTraceDumper >> initializeComposingAll: aDumpersCollection [
 
-	dumpers := aDumpersCollection
+  dumpers := aDumpersCollection
 ]

@@ -11,21 +11,21 @@ Class {
 { #category : 'tests' }
 RemoteReferenceTest >> testAccessing [
 
-	self
-		assert: ( RemoteReference locatedAt: 'https://google.com' asUrl ) selfLocation
-		equals: 'https://google.com/'
+  self
+    assert: ( RemoteReference locatedAt: 'https://google.com' asUrl ) selfLocation
+    equals: 'https://google.com/'
 ]
 
 { #category : 'tests' }
 RemoteReferenceTest >> testComparing [
 
-	self
-		assert: ( RemoteReference locatedAt: 'https://google.com' asUrl )
-			equals: ( RemoteReference locatedAt: 'https://google.com/' asUrl );
-		assert: ( RemoteReference locatedAt: 'https://google.com' asUrl ) hash
-			equals: ( RemoteReference locatedAt: 'https://google.com/' asUrl ) hash.
+  self
+    assert: ( RemoteReference locatedAt: 'https://google.com' asUrl )
+    equals: ( RemoteReference locatedAt: 'https://google.com/' asUrl );
+    assert: ( RemoteReference locatedAt: 'https://google.com' asUrl ) hash
+    equals: ( RemoteReference locatedAt: 'https://google.com/' asUrl ) hash.
 
-	self
-		deny: ( RemoteReference locatedAt: 'http://google.com' asUrl )
-		equals: ( RemoteReference locatedAt: 'https://google.com' asUrl )
+  self
+    deny: ( RemoteReference locatedAt: 'http://google.com' asUrl )
+    equals: ( RemoteReference locatedAt: 'https://google.com' asUrl )
 ]

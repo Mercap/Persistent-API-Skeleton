@@ -8,25 +8,25 @@ Class {
 { #category : 'private' }
 SingleSQLiteDatabaseProviderModuleFactory >> databaseBaseName [
 
-	^self databaseFileName asFileReference asAbsolute basename
+  ^ self databaseFileName asFileReference asAbsolute basename
 ]
 
 { #category : 'private' }
 SingleSQLiteDatabaseProviderModuleFactory >> databaseFileName [
 
-	^databaseConfiguration databaseFileName
+  ^ databaseConfiguration databaseFileName
 ]
 
 { #category : 'private' }
 SingleSQLiteDatabaseProviderModuleFactory >> databaseLogin [
 
-	DatabaseAccessor classForThisPlatform DefaultDriver: SQLite3Driver.
-	^ Login new
-		database: UDBCSQLite3Platform new;
-		host: self databasePathName;
-		databaseName: self databaseBaseName;
-		password: '';
-		yourself
+  DatabaseAccessor classForThisPlatform DefaultDriver: SQLite3Driver.
+  ^ Login new
+      database: UDBCSQLite3Platform new;
+      host: self databasePathName;
+      databaseName: self databaseBaseName;
+      password: '';
+      yourself
 ]
 
 { #category : 'private' }

@@ -40,13 +40,11 @@ ConfigureAllowedOriginsTest >> testApplyOnNoOriginsAllowed [
 { #category : 'tests' }
 ConfigureAllowedOriginsTest >> testApplyOnOneOriginAllowed [
 
-	( ConfigureAllowedOrigins
-		  allowing: ( Array with: 'http://allowed-origin-test/' )
-		  exposing: ( Array with: 'Etag' ) ) applyOn: self.
+  ( ConfigureAllowedOrigins allowing: #( 'http://allowed-origin-test/' ) exposing: #( 'Etag' ) )
+    applyOn: self.
 
-	self
-		assert: allowedOrigins size equals: 1;
-		assert: allowedOrigins first equals: 'http://allowed-origin-test/';
-		assert: exposedHeaders size equals: 1;
-		assert: exposedHeaders first equals: 'Etag'
+  self
+    withTheOnlyOneIn: allowedOrigins
+    do: [ :allowedOrigin | self assert: allowedOrigin equals: 'http://allowed-origin-test/' ];
+    withTheOnlyOneIn: exposedHeaders do: [ :header | self assert: header equals: 'Etag' ]
 ]

@@ -26,21 +26,21 @@ SingleDatabaseRepositoryProviderModuleFactory class >> configuredBy: theDatabase
 ]
 
 { #category : 'testing' }
-SingleDatabaseRepositoryProviderModuleFactory class >> isAbstract [ 
+SingleDatabaseRepositoryProviderModuleFactory class >> isAbstract [
 
-	^self = SingleDatabaseRepositoryProviderModuleFactory
+  ^ self = SingleDatabaseRepositoryProviderModuleFactory
 ]
 
 { #category : 'private' }
 SingleDatabaseRepositoryProviderModuleFactory >> databaseLogin [
 
-	self subclassResponsibility
+  self subclassResponsibility
 ]
 
 { #category : 'initialization' }
 SingleDatabaseRepositoryProviderModuleFactory >> initializeConfiguredBy: theDatabaseConfiguration [
 
-	databaseConfiguration := theDatabaseConfiguration.
+  databaseConfiguration := theDatabaseConfiguration
 ]
 
 { #category : 'instance creation' }

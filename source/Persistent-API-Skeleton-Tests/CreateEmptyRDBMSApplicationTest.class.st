@@ -8,13 +8,13 @@ Class {
 { #category : 'testing' }
 CreateEmptyRDBMSApplicationTest class >> isAbstract [
 
-	^ self = CreateEmptyRDBMSApplicationTest
+  ^ self = CreateEmptyRDBMSApplicationTest
 ]
 
 { #category : 'tests' }
 CreateEmptyRDBMSApplicationTest >> testCommandName [
 
-	self assert: CreateEmptyRDBMSApplication commandName equals: 'create-empty-rdbms'
+  self assert: CreateEmptyRDBMSApplication commandName equals: 'create-empty-rdbms'
 ]
 
 { #category : 'tests' }

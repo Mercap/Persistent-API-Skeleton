@@ -8,7 +8,7 @@ Class {
 { #category : 'tests' }
 APISkeletonZnUrlExtensionsTest >> testNotEmpty [
 
-	self
-		assert: 'http://google.com' asUrl notEmpty;
-		deny: '' asUrl notEmpty
+  self
+    assert: 'http://google.com' asUrl notEmpty;
+    deny: '' asUrl notEmpty
 ]

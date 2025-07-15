@@ -5,32 +5,32 @@ Class {
 	#package : 'Persistent-API-Skeleton-Tests'
 }
 
-{ #category : 'private' }
+{ #category : 'accessing' }
 PersistentPetStoreApplication class >> commandName [
 
 	^ 'persistent-pet-store'
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing' }
 PersistentPetStoreApplication class >> description [
 
 	^ 'A RESTful API for Pet stores'
 ]
 
-{ #category : 'initialization' }
+{ #category : 'class initialization' }
 PersistentPetStoreApplication class >> initialize [
 
-	<ignoreForCoverage>
-	self initializeVersion
+  <ignoreForCoverage>
+  self initializeVersion
 ]
 
 { #category : 'private' }
 PersistentPetStoreApplication class >> projectName [
 
-  ^ #Stargate
+  ^ #PersistentAPISkeleton
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing' }
 PersistentPetStoreApplication class >> saganConfigurationParameters [
 
 	^#()
@@ -39,29 +39,29 @@ PersistentPetStoreApplication class >> saganConfigurationParameters [
 { #category : 'private' }
 PersistentPetStoreApplication class >> sectionsForStargateConfiguration [
 
-	^ #( 'Pet Store' ) , super sectionsForStargateConfiguration
+  ^ #( 'Pet Store' ) , super sectionsForStargateConfiguration
 ]
 
 { #category : 'private - accessing' }
 PersistentPetStoreApplication >> controllersToInstall [
 
-	^ { PetsRESTfulController new. PetOrdersRESTfulController new }
+  ^ { PetsRESTfulController new . PetOrdersRESTfulController new }
 ]
 
 { #category : 'private - accessing' }
 PersistentPetStoreApplication >> installation [
 
-	^ PetStoreInstallation installedBy: self
+  ^ PetStoreInstallation installedBy: self
 ]
 
 { #category : 'private - accessing' }
 PersistentPetStoreApplication >> serviceDefinitions [
 
-	^ #()
+  ^ #(  )
 ]
 
 { #category : 'private - accessing' }
 PersistentPetStoreApplication >> stargateConfiguration [
 
-	^self configuration petStore stargate
+  ^ self configuration petStore stargate
 ]

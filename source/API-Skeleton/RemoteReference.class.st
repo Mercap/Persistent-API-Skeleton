@@ -17,25 +17,25 @@ RemoteReference class >> locatedAt: aUrl [
 { #category : 'comparing' }
 RemoteReference >> = anObject [
 
-	^ self equalityChecker
-		compare: #selfLocation;
-		checkAgainst: anObject
+  ^ self equalityChecker
+      compare: #selfLocation;
+      checkAgainst: anObject
 ]
 
 { #category : 'comparing' }
 RemoteReference >> hash [
 
-	^ self selfLocation hash
+  ^ self selfLocation hash
 ]
 
 { #category : 'initialization' }
 RemoteReference >> initializeLocatedAt: aUrl [
 
-	selfLocation := aUrl asString
+  selfLocation := aUrl asString
 ]
 
 { #category : 'initialization' }
 RemoteReference >> selfLocation [
 
-	^ selfLocation
+  ^ selfLocation
 ]

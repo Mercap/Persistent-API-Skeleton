@@ -11,19 +11,19 @@ Class {
 { #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> commandName [
 
-	^ 'create-empty-rdbms'
+  ^ 'create-empty-rdbms'
 ]
 
 { #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> configurationParameters [
 
-	^ self saganConfigurationParameters
+  ^ self saganConfigurationParameters
 ]
 
 { #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> description [
 
-	^ 'Creates the database structure'
+  ^ 'Creates the database structure'
 ]
 
 { #category : 'private' }
@@ -55,52 +55,51 @@ CreateEmptyRDBMSApplication class >> logsDirectory [
 { #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> projectName [
 
-	self subclassResponsibility
+  self subclassResponsibility
 ]
 
 { #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> saganConfigurationParameters [
 
-	self subclassResponsibility
+  self subclassResponsibility
 ]
 
-{ #category : 'versions' }
+{ #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> version [
 
-	^ Version
+  ^ Version
 ]
 
-{ #category : 'private - activation' }
+{ #category : 'private - activation/deactivation' }
 CreateEmptyRDBMSApplication >> basicStartWithin: context [
 
-	| rootSystem |
-
-	LogRecord emitInfo: 'Installing system'.
-	rootSystem := self installation install: self class version.
-	LogRecord emitInfo: 'Starting up system'.
-	rootSystem startUp.
-	LogRecord emitInfo: 'Setting up database structure'.
-	( rootSystem >> #RepositoryProviderSystem ) prepareForInitialPersistence.
-	LogRecord emitInfo: 'Shutting down system'.
-	rootSystem shutDown.
-	self exitSuccess
+  | rootSystem |
+  LogRecord emitInfo: 'Installing system'.
+  rootSystem := self installation install: self class version.
+  LogRecord emitInfo: 'Starting up system'.
+  rootSystem startUp.
+  LogRecord emitInfo: 'Setting up database structure'.
+  ( rootSystem >> #RepositoryProviderSystem ) prepareForInitialPersistence.
+  LogRecord emitInfo: 'Shutting down system'.
+  rootSystem shutDown.
+  self exitSuccess
 ]
 
 { #category : 'private - accessing' }
 CreateEmptyRDBMSApplication >> installation [
 
-	^ self subclassResponsibility
+  ^ self subclassResponsibility
 ]
 
 { #category : 'private - accessing' }
 CreateEmptyRDBMSApplication >> saganConfiguration [
 
-	^ self configuration sagan
+  ^ self configuration sagan
 ]
 
 { #category : 'error handling' }
 CreateEmptyRDBMSApplication >> stackTraceDumper [
 
-	^ StackTraceBinarySerializer on: [ :dumpAction | 
-		  self class fileReferenceToDumpStackTrace binaryWriteStreamDo: dumpAction ]
+  ^ StackTraceBinarySerializer on: [ :dumpAction |
+        self class fileReferenceToDumpStackTrace binaryWriteStreamDo: dumpAction ]
 ]
