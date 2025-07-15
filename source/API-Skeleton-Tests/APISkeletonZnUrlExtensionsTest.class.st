@@ -1,10 +1,11 @@
 Class {
-	#name : #APISkeletonZnUrlExtensionsTest,
-	#superclass : #TestCase,
-	#category : #'API-Skeleton-Tests'
+	#name : 'APISkeletonZnUrlExtensionsTest',
+	#superclass : 'TestCase',
+	#category : 'API-Skeleton-Tests',
+	#package : 'API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 APISkeletonZnUrlExtensionsTest >> testNotEmpty [
 
 	self

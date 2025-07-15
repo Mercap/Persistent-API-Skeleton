@@ -1,1 +1,1 @@
-Package { #name : #'Persistent-API-Skeleton-Tests' }
+Package { #name : 'Persistent-API-Skeleton-Tests' }

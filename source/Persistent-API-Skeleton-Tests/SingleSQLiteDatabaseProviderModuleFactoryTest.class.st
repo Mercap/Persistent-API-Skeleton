@@ -2,12 +2,13 @@
 A SingleSQLiteDatabaseProviderModuleFactoryTest is a test class for testing the behavior of SingleSQLiteDatabaseProviderModuleFactory
 "
 Class {
-	#name : #SingleSQLiteDatabaseProviderModuleFactoryTest,
-	#superclass : #PersistentAPIConfigurationTest,
-	#category : #'Persistent-API-Skeleton-Tests'
+	#name : 'SingleSQLiteDatabaseProviderModuleFactoryTest',
+	#superclass : 'PersistentAPIConfigurationTest',
+	#category : 'Persistent-API-Skeleton-Tests',
+	#package : 'Persistent-API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SingleSQLiteDatabaseProviderModuleFactoryTest >> testDatabaseLogin [
 
 	| factory configuration |
@@ -26,7 +27,7 @@ SingleSQLiteDatabaseProviderModuleFactoryTest >> testDatabaseLogin [
 		assert: factory databaseLogin password isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SingleSQLiteDatabaseProviderModuleFactoryTest >> testDefaultDatabaseLogin [
 
 	| factory configuration |

@@ -1,6 +1,6 @@
-Extension { #name : #HTTPClientError }
+Extension { #name : 'HTTPClientError' }
 
-{ #category : #'*API-Skeleton' }
+{ #category : '*API-Skeleton' }
 HTTPClientError >> asJRPCJSON [
 
 	^ super asJRPCJSON
@@ -8,7 +8,7 @@ HTTPClientError >> asJRPCJSON [
 		  yourself
 ]
 
-{ #category : #'*API-Skeleton' }
+{ #category : '*API-Skeleton' }
 HTTPClientError >> asJRPCResponseWithId: anInteger [
 
 	^ self code = 422

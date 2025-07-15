@@ -1,10 +1,11 @@
 Class {
-	#name : #NeoJSONWriterExtensionsTest,
-	#superclass : #TestCase,
-	#category : #'API-Skeleton-Tests'
+	#name : 'NeoJSONWriterExtensionsTest',
+	#superclass : 'TestCase',
+	#category : 'API-Skeleton-Tests',
+	#package : 'API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NeoJSONWriterExtensionsTest >> testWriteRemoteReference [
 
 	| object json |

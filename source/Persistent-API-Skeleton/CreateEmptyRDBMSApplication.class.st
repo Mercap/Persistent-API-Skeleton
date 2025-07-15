@@ -1,109 +1,104 @@
 Class {
-	#name : #CreateEmptyRDBMSApplication,
-	#superclass : #LaunchpadApplication,
+	#name : 'CreateEmptyRDBMSApplication',
+	#superclass : 'LaunchpadApplication',
 	#classInstVars : [
 		'Version'
 	],
-	#category : #'Persistent-API-Skeleton'
+	#category : 'Persistent-API-Skeleton',
+	#package : 'Persistent-API-Skeleton'
 }
 
-{ #category : #accessing }
-CreateEmptyRDBMSApplication class >> applicationBaselineName [
-
-	self subclassResponsibility
-]
-
-{ #category : #accessing }
+{ #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> commandName [
 
 	^ 'create-empty-rdbms'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> configurationParameters [
 
 	^ self saganConfigurationParameters
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> description [
 
 	^ 'Creates the database structure'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 CreateEmptyRDBMSApplication class >> fileReferenceToDumpStackTrace [
 
 	^ self logsDirectory / ( '<1s>-<2s>.fuel' expandMacrosWith: self commandName
 		    with: ( ( ZTimestampFormat fromString: '2001-02-03_16-05-06.07' ) format: ZTimestamp now ) )
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CreateEmptyRDBMSApplication class >> initializeVersion [
 
 	<ignoreForCoverage>
-	Version := VersionFromRepositoryResolver new valueFor: self applicationBaselineName
+	Version := VersionFromRepositoryResolver new valueFor: self projectName
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CreateEmptyRDBMSApplication class >> isAbstract [
 
 	^ self = CreateEmptyRDBMSApplication
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 CreateEmptyRDBMSApplication class >> logsDirectory [
 
-	^ FileLocator workingDirectory / 'logs'
+	^ ( FileLocator workingDirectory / 'logs' ) ensureCreateDirectory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+CreateEmptyRDBMSApplication class >> projectName [
+
+	self subclassResponsibility
+]
+
+{ #category : 'accessing' }
 CreateEmptyRDBMSApplication class >> saganConfigurationParameters [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
-CreateEmptyRDBMSApplication class >> sectionsForSaganConfiguration [
-
-	^ #( 'Sagan' )
-]
-
-{ #category : #versions }
+{ #category : 'versions' }
 CreateEmptyRDBMSApplication class >> version [
 
 	^ Version
 ]
 
-{ #category : #'private - activation' }
+{ #category : 'private - activation' }
 CreateEmptyRDBMSApplication >> basicStartWithin: context [
 
 	| rootSystem |
 
-	LaunchpadLogRecord emitInfo: 'Installing system'.
+	LogRecord emitInfo: 'Installing system'.
 	rootSystem := self installation install: self class version.
-	LaunchpadLogRecord emitInfo: 'Starting up system'.
+	LogRecord emitInfo: 'Starting up system'.
 	rootSystem startUp.
-	LaunchpadLogRecord emitInfo: 'Setting up database structure'.
+	LogRecord emitInfo: 'Setting up database structure'.
 	( rootSystem >> #RepositoryProviderSystem ) prepareForInitialPersistence.
-	LaunchpadLogRecord emitInfo: 'Shutting down system'.
+	LogRecord emitInfo: 'Shutting down system'.
 	rootSystem shutDown.
 	self exitSuccess
 ]
 
-{ #category : #'private - accessing' }
+{ #category : 'private - accessing' }
 CreateEmptyRDBMSApplication >> installation [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'private - accessing' }
+{ #category : 'private - accessing' }
 CreateEmptyRDBMSApplication >> saganConfiguration [
 
 	^ self configuration sagan
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 CreateEmptyRDBMSApplication >> stackTraceDumper [
 
 	^ StackTraceBinarySerializer on: [ :dumpAction | 

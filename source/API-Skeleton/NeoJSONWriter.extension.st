@@ -1,6 +1,6 @@
-Extension { #name : #NeoJSONWriter }
+Extension { #name : 'NeoJSONWriter' }
 
-{ #category : #'*API-Skeleton' }
+{ #category : '*API-Skeleton' }
 NeoJSONWriter >> mapRemoteReference [
 
 	self

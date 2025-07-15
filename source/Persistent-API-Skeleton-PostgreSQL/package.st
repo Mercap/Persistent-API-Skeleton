@@ -1,1 +1,1 @@
-Package { #name : #'Persistent-API-Skeleton-PostgreSQL' }
+Package { #name : 'Persistent-API-Skeleton-PostgreSQL' }

@@ -1,10 +1,11 @@
 Class {
-	#name : #NeoJSONReaderExtensionsTest,
-	#superclass : #TestCase,
-	#category : #'API-Skeleton-Tests'
+	#name : 'NeoJSONReaderExtensionsTest',
+	#superclass : 'TestCase',
+	#category : 'API-Skeleton-Tests',
+	#package : 'API-Skeleton-Tests'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 NeoJSONReaderExtensionsTest >> readAssociationFrom: string [
 
 	| reader |
@@ -21,7 +22,7 @@ NeoJSONReaderExtensionsTest >> readAssociationFrom: string [
 	^ reader nextAs: Association
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NeoJSONReaderExtensionsTest >> readRemoteReferenceFrom: aJSONString [
 
 	| reader |
@@ -41,7 +42,7 @@ NeoJSONReaderExtensionsTest >> readRemoteReferenceFrom: aJSONString [
 	^ reader nextAs: Association
 ]
 
-{ #category : #'tests - remote reference' }
+{ #category : 'tests - remote reference' }
 NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromEmptyURL [
 
 	self
@@ -50,7 +51,7 @@ NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromEmptyURL [
 		withMessageText: 'An empty location is not a valid URI'
 ]
 
-{ #category : #'tests - remote reference' }
+{ #category : 'tests - remote reference' }
 NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromInvalidURL [
 
 	self
@@ -62,7 +63,7 @@ NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromInvalidURL [
 			withMessageText: 'Invalid URI'
 ]
 
-{ #category : #'tests - remote reference' }
+{ #category : 'tests - remote reference' }
 NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromNonStringObject [
 
 	self
@@ -71,7 +72,7 @@ NeoJSONReaderExtensionsTest >> testCantParseRemoteReferenceFromNonStringObject [
 		withMessageText: '" expected'
 ]
 
-{ #category : #'tests - strict mode' }
+{ #category : 'tests - strict mode' }
 NeoJSONReaderExtensionsTest >> testFailIfKeyAndValuePropertiesAreMissing [
 
 	self
@@ -80,7 +81,7 @@ NeoJSONReaderExtensionsTest >> testFailIfKeyAndValuePropertiesAreMissing [
 		withMessageText: 'Missing required keys (#key, #value)'
 ]
 
-{ #category : #'tests - strict mode' }
+{ #category : 'tests - strict mode' }
 NeoJSONReaderExtensionsTest >> testFailIfKeyPropertyIsMissing [
 
 	self
@@ -89,7 +90,7 @@ NeoJSONReaderExtensionsTest >> testFailIfKeyPropertyIsMissing [
 		withMessageText: 'Missing required keys (#key)'
 ]
 
-{ #category : #'tests - strict mode' }
+{ #category : 'tests - strict mode' }
 NeoJSONReaderExtensionsTest >> testFailIfValuePropertyIsMissing [
 
 	self
@@ -98,7 +99,7 @@ NeoJSONReaderExtensionsTest >> testFailIfValuePropertyIsMissing [
 		withMessageText: 'Missing required keys (#value)'
 ]
 
-{ #category : #'tests - remote reference' }
+{ #category : 'tests - remote reference' }
 NeoJSONReaderExtensionsTest >> testParseRemoteReference [
 
 	| object |
@@ -112,7 +113,7 @@ NeoJSONReaderExtensionsTest >> testParseRemoteReference [
 			equals: 'https://api.example.com/resource/00000000-0000-0000-0000-000000000000'
 ]
 
-{ #category : #'tests - strict mode' }
+{ #category : 'tests - strict mode' }
 NeoJSONReaderExtensionsTest >> testParsingValidObject [
 
 	| object |
@@ -123,7 +124,7 @@ NeoJSONReaderExtensionsTest >> testParsingValidObject [
 		assert: object value equals: 1
 ]
 
-{ #category : #'tests - strict mode' }
+{ #category : 'tests - strict mode' }
 NeoJSONReaderExtensionsTest >> testParsingValidObjectWithExtraFields [
 
 	| object |

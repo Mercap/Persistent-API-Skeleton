@@ -1,15 +1,16 @@
 Class {
-	#name : #SingleDatabaseRepositoryProviderModule,
-	#superclass : #SystemModule,
+	#name : 'SingleDatabaseRepositoryProviderModule',
+	#superclass : 'SystemModule',
 	#instVars : [
 		'rootSystem',
 		'login',
 		'configurationAction'
 	],
-	#category : #'Persistent-API-Skeleton'
+	#category : 'Persistent-API-Skeleton',
+	#package : 'Persistent-API-Skeleton'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SingleDatabaseRepositoryProviderModule class >> toInstallOn: aCompositeSystem usingSessionPoolWith: aDatabaseLogin configuredBy: aConfigurationAction [
 
 	^ self new
@@ -18,7 +19,7 @@ SingleDatabaseRepositoryProviderModule class >> toInstallOn: aCompositeSystem us
 		  configuredBy: aConfigurationAction
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SingleDatabaseRepositoryProviderModule >> initializeToInstallOn: aCompositeSystem usingSessionPoolWith: aDatabaseLogin configuredBy: aConfigurationAction [
 
 	rootSystem := aCompositeSystem.
@@ -26,13 +27,13 @@ SingleDatabaseRepositoryProviderModule >> initializeToInstallOn: aCompositeSyste
 	configurationAction := aConfigurationAction
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> name [
 
 	^'Single Database Repository Provider'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> registerRepositoryProviderSystemForInstallationIn: systems [
 
 	^ self
@@ -46,13 +47,13 @@ SingleDatabaseRepositoryProviderModule >> registerRepositoryProviderSystemForIns
 		  in: systems
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SingleDatabaseRepositoryProviderModule >> rootSystem [
 
 	^ rootSystem
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SingleDatabaseRepositoryProviderModule >> systemInterfacesToInstall [
 
 	^#(RepositoryProviderSystem)

@@ -1,10 +1,11 @@
 Class {
-	#name : #SinglePostgreSQLDatabaseProviderModuleFactoryTest,
-	#superclass : #PersistentAPIConfigurationTest,
-	#category : #'Persistent-API-Skeleton-Tests'
+	#name : 'SinglePostgreSQLDatabaseProviderModuleFactoryTest',
+	#superclass : 'PersistentAPIConfigurationTest',
+	#category : 'Persistent-API-Skeleton-Tests',
+	#package : 'Persistent-API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SinglePostgreSQLDatabaseProviderModuleFactoryTest >> testDatabaseLogin [
 
 	| login configuration |

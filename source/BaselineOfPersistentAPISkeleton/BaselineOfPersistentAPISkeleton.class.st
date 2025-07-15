@@ -1,10 +1,11 @@
 Class {
-	#name : #BaselineOfPersistentAPISkeleton,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfPersistentAPISkeleton
+	#name : 'BaselineOfPersistentAPISkeleton',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfPersistentAPISkeleton',
+	#package : 'BaselineOfPersistentAPISkeleton'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfPersistentAPISkeleton >> baseline: spec [
 
 	<baseline>
@@ -16,49 +17,53 @@ BaselineOfPersistentAPISkeleton >> baseline: spec [
 			spec
 				group: 'Deployment' with: #('SQLite3 Persistence' 'PostgreSQL Persistence');
 				group: 'CI' with: 'Tests';
-				group: 'Dependent-SUnit-Extensions' with: #('Stargate-SUnit' 'Kepler-SUnit');
+				group: 'Dependent-SUnit-Extensions' with: #('Stargate-SUnit' 'Kepler-SUnit' 'Launchpad-SUnit');
 				group: 'Tools' with: 'Stargate-Tools';
 				group: 'Development' with: #('Tests' 'Tools')
 			]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfPersistentAPISkeleton >> projectClass [
 
 	^ MetacelloCypressBaselineProject
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfPersistentAPISkeleton >> setUpDependencies: spec [
 
-	spec
-		baseline: 'Stargate' with: [ spec repository: 'github://ba-st/Stargate:v8' ];
-		project: 'Stargate-Deployment' copyFrom: 'Stargate' with: [ spec loads: 'Deployment' ];
-		project: 'Stargate-SUnit' copyFrom: 'Stargate' with: [ spec loads: 'Dependent-SUnit-Extensions' ];
-		project: 'Stargate-Tools' copyFrom: 'Stargate' with: [ spec loads: 'Tools' ].
+  spec
+    baseline: 'Stargate' with: [ spec repository: 'github://ba-st/Stargate:v11' ];
+    project: 'Stargate-Deployment' copyFrom: 'Stargate' with: [ spec loads: 'Deployment' ];
+    project: 'Stargate-SUnit'
+    copyFrom: 'Stargate'
+    with: [ spec loads: 'Dependent-SUnit-Extensions' ];
+    project: 'Stargate-Tools' copyFrom: 'Stargate' with: [ spec loads: 'Tools' ];
+    project: 'Stargate-Examples' copyFrom: 'Stargate' with: [ spec loads: 'Examples' ].
 
-	spec
-		baseline: 'StargateConsul' with: [ spec repository: 'github://ba-st/Stargate-Consul:v4' ];
-		project: 'Stargate-Consul-Deployment'
-		copyFrom: 'StargateConsul'
-		with: [ spec loads: 'Deployment' ].
+  spec
+    baseline: 'StargateConsul' with: [ spec repository: 'github://ba-st/Stargate-Consul:v7' ];
+    project: 'Stargate-Consul-Deployment'
+    copyFrom: 'StargateConsul'
+    with: [ spec loads: 'Deployment' ].
 
-	spec
-		baseline: 'Sagan' with: [ spec repository: 'github://ba-st/Sagan:v6' ];
-		project: 'Sagan-SQLite' copyFrom: 'Sagan' with: [ spec loads: 'SQLite' ];
-		project: 'Sagan-PostgreSQL' copyFrom: 'Sagan' with: [ spec loads: 'PostgreSQL' ].
+  spec
+    baseline: 'Sagan' with: [ spec repository: 'github://ba-st/Sagan:v10' ];
+    project: 'Sagan-SQLite' copyFrom: 'Sagan' with: [ spec loads: 'SQLite' ];
+    project: 'Sagan-PostgreSQL' copyFrom: 'Sagan' with: [ spec loads: 'PostgreSQL' ].
 
-	spec
-		baseline: 'Launchpad' with: [ spec repository: 'github://ba-st/Launchpad:v4' ];
-		project: 'Launchpad-Deployment' copyFrom: 'Launchpad' with: [ spec loads: 'Deployment' ].
+  spec
+    baseline: 'Launchpad' with: [ spec repository: 'github://ba-st/Launchpad:v7' ];
+    project: 'Launchpad-Deployment' copyFrom: 'Launchpad' with: [ spec loads: 'Deployment' ];
+    project: 'Launchpad-SUnit' copyFrom: 'Launchpad' with: [ spec loads: 'Dependent-SUnit-Extensions' ].
 
-	spec
-		baseline: 'Kepler' with: [ spec repository: 'github://ba-st/Kepler:v5' ];
-		project: 'Kepler-Core' copyFrom: 'Kepler' with: [ spec loads: 'Core' ];
-		project: 'Kepler-SUnit' copyFrom: 'Kepler' with: [ spec loads: 'Dependent-SUnit-Extensions' ]
+  spec
+    baseline: 'Kepler' with: [ spec repository: 'github://ba-st/Kepler:v7' ];
+    project: 'Kepler-Core' copyFrom: 'Kepler' with: [ spec loads: 'Core' ];
+    project: 'Kepler-SUnit' copyFrom: 'Kepler' with: [ spec loads: 'Dependent-SUnit-Extensions' ]
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfPersistentAPISkeleton >> setUpPackages: spec [
 
 	spec
@@ -88,7 +93,7 @@ BaselineOfPersistentAPISkeleton >> setUpPackages: spec [
 	spec
 		package: 'Persistent-API-Skeleton-Tests'
 			with: [ spec
-				requires: #('Persistent-API-Skeleton-SQLite' 'Persistent-API-Skeleton-PostgreSQL' 'Stargate-SUnit')
+				requires: #('Persistent-API-Skeleton-SQLite' 'Persistent-API-Skeleton-PostgreSQL' 'Stargate-SUnit' 'Stargate-Examples' 'Launchpad-SUnit')
 			];
 		group: 'Tests' with: 'Persistent-API-Skeleton-Tests'
 ]

@@ -2,12 +2,13 @@
 A RemoteReferenceTest is a test class for testing the behavior of RemoteReference
 "
 Class {
-	#name : #RemoteReferenceTest,
-	#superclass : #TestCase,
-	#category : #'API-Skeleton-Tests'
+	#name : 'RemoteReferenceTest',
+	#superclass : 'TestCase',
+	#category : 'API-Skeleton-Tests',
+	#package : 'API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RemoteReferenceTest >> testAccessing [
 
 	self
@@ -15,7 +16,7 @@ RemoteReferenceTest >> testAccessing [
 		equals: 'https://google.com/'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RemoteReferenceTest >> testComparing [
 
 	self

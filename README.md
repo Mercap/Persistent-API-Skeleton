@@ -10,6 +10,9 @@ includes as dependencies: Stargate, Sagan, Kepler and Launchpad
 
 [![GitHub release](https://img.shields.io/github/release/mercap/Persistent-API-Skeleton.svg)](https://github.com/mercap/Persistent-API-Skeleton/releases/latest)
 [![Pharo 10](https://img.shields.io/badge/Pharo-10-informational)](https://pharo.org)
+[![Pharo 11](https://img.shields.io/badge/Pharo-11-informational)](https://pharo.org)
+[![Pharo 12](https://img.shields.io/badge/Pharo-12-informational)](https://pharo.org)
+[![Pharo 13](https://img.shields.io/badge/Pharo-13-informational)](https://pharo.org)
 
 ## Quick links
 
@@ -24,7 +27,7 @@ includes as dependencies: Stargate, Sagan, Kepler and Launchpad
 
 ## Installation
 
-To load the project in a Pharo image follow this [instructions](docs/how-to/how-to-load-in-pharo.md).
+To load the project in a Pharo image follow these [instructions](docs/how-to/how-to-load-in-pharo.md).
 
 ## Contributing
 

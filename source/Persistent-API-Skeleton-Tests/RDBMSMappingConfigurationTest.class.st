@@ -2,12 +2,13 @@
 A RDBMSMappingConfigurationTest is a test class for testing the behavior of RDBMSMappingConfiguration
 "
 Class {
-	#name : #RDBMSMappingConfigurationTest,
-	#superclass : #TestCase,
-	#category : #'Persistent-API-Skeleton-Tests'
+	#name : 'RDBMSMappingConfigurationTest',
+	#superclass : 'TestCase',
+	#category : 'Persistent-API-Skeleton-Tests',
+	#package : 'Persistent-API-Skeleton-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RDBMSMappingConfigurationTest >> testRemoteReferenceMapping [
 
 	| definition |
@@ -34,7 +35,7 @@ RDBMSMappingConfigurationTest >> testRemoteReferenceMapping [
 			]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RDBMSMappingConfigurationTest >> testUUIDMapping [
 
 	| definition |

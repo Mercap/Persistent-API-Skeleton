@@ -1,6 +1,6 @@
-Extension { #name : #RDBMSMappingConfiguration }
+Extension { #name : 'RDBMSMappingConfiguration' }
 
-{ #category : #'*Persistent-API-Skeleton' }
+{ #category : '*Persistent-API-Skeleton' }
 RDBMSMappingConfiguration >> mappingForOptional: anAttributeName to: aFieldName on: aTableName [
 
 	| dbToStConversion stToDbConversion |
@@ -20,7 +20,7 @@ RDBMSMappingConfiguration >> mappingForOptional: anAttributeName to: aFieldName 
 				    fromSmalltalkToDatabaseUsing: stToDbConversion ) }
 ]
 
-{ #category : #'*Persistent-API-Skeleton' }
+{ #category : '*Persistent-API-Skeleton' }
 RDBMSMappingConfiguration >> remoteReferenceConversionDefinition [
 
 	^ PluggableMappingConversionDefinition named: 'Remote Reference'
@@ -28,7 +28,7 @@ RDBMSMappingConfiguration >> remoteReferenceConversionDefinition [
 		  fromSmalltalkToDatabaseUsing: [ :reference | reference selfLocation asString ]
 ]
 
-{ #category : #'*Persistent-API-Skeleton' }
+{ #category : '*Persistent-API-Skeleton' }
 RDBMSMappingConfiguration >> uuidConversionDefinition [
 
 	^ PluggableMappingConversionDefinition named: 'UUID'

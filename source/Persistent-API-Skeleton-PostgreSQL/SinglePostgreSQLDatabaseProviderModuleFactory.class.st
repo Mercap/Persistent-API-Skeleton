@@ -1,10 +1,11 @@
 Class {
-	#name : #SinglePostgreSQLDatabaseProviderModuleFactory,
-	#superclass : #SingleDatabaseRepositoryProviderModuleFactory,
-	#category : #'Persistent-API-Skeleton-PostgreSQL'
+	#name : 'SinglePostgreSQLDatabaseProviderModuleFactory',
+	#superclass : 'SingleDatabaseRepositoryProviderModuleFactory',
+	#category : 'Persistent-API-Skeleton-PostgreSQL',
+	#package : 'Persistent-API-Skeleton-PostgreSQL'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SinglePostgreSQLDatabaseProviderModuleFactory >> databaseLogin [
 
 	| login |
