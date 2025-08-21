@@ -17,7 +17,7 @@ should reference the package in your product baseline:
       spec
         baseline: 'PersistentAPISkeleton'
         with: [ spec
-          repository: 'github://github://mercap/Persistent-API-Skeleton:v{XX}' ];
+          repository: 'github://mercap/Persistent-API-Skeleton:v{XX}' ];
         project: 'Persistent-API-Skeleton-Deployment'
         copyFrom: 'PersistentAPISkeleton' with: [ spec loads: 'Deployment' ]
     ```
