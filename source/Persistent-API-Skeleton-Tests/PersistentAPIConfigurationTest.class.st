@@ -3,7 +3,7 @@ A PersistentAPIConfigurationTest is a test class for testing the behavior of Per
 "
 Class {
 	#name : 'PersistentAPIConfigurationTest',
-	#superclass : 'TestCase',
+	#superclass : 'LaunchpadTest',
 	#category : 'Persistent-API-Skeleton-Tests',
 	#package : 'Persistent-API-Skeleton-Tests'
 }

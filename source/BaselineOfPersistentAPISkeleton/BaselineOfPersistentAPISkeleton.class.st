@@ -33,7 +33,7 @@ BaselineOfPersistentAPISkeleton >> projectClass [
 BaselineOfPersistentAPISkeleton >> setUpDependencies: spec [
 
   spec
-    baseline: 'Stargate' with: [ spec repository: 'github://ba-st/Stargate:v11' ];
+    baseline: 'Stargate' with: [ spec repository: 'github://ba-st/Stargate:v12' ];
     project: 'Stargate-Deployment' copyFrom: 'Stargate' with: [ spec loads: 'Deployment' ];
     project: 'Stargate-SUnit'
     copyFrom: 'Stargate'
@@ -42,25 +42,25 @@ BaselineOfPersistentAPISkeleton >> setUpDependencies: spec [
     project: 'Stargate-Examples' copyFrom: 'Stargate' with: [ spec loads: 'Examples' ].
 
   spec
-    baseline: 'StargateConsul' with: [ spec repository: 'github://ba-st/Stargate-Consul:v7' ];
+    baseline: 'StargateConsul' with: [ spec repository: 'github://ba-st/Stargate-Consul:v8' ];
     project: 'Stargate-Consul-Deployment'
     copyFrom: 'StargateConsul'
     with: [ spec loads: 'Deployment' ].
 
   spec
-    baseline: 'Sagan' with: [ spec repository: 'github://ba-st/Sagan:v10' ];
+    baseline: 'Sagan' with: [ spec repository: 'github://ba-st/Sagan:v12' ];
     project: 'Sagan-SQLite' copyFrom: 'Sagan' with: [ spec loads: 'SQLite' ];
     project: 'Sagan-PostgreSQL' copyFrom: 'Sagan' with: [ spec loads: 'PostgreSQL' ].
 
   spec
-    baseline: 'Launchpad' with: [ spec repository: 'github://ba-st/Launchpad:v7' ];
+    baseline: 'Launchpad' with: [ spec repository: 'github://ba-st/Launchpad:v8' ];
     project: 'Launchpad-Deployment' copyFrom: 'Launchpad' with: [ spec loads: 'Deployment' ];
     project: 'Launchpad-SUnit'
     copyFrom: 'Launchpad'
     with: [ spec loads: 'Dependent-SUnit-Extensions' ].
 
   spec
-    baseline: 'Kepler' with: [ spec repository: 'github://ba-st/Kepler:v7' ];
+    baseline: 'Kepler' with: [ spec repository: 'github://ba-st/Kepler:v8' ];
     project: 'Kepler-Core' copyFrom: 'Kepler' with: [ spec loads: 'Core' ];
     project: 'Kepler-SUnit' copyFrom: 'Kepler' with: [ spec loads: 'Dependent-SUnit-Extensions' ]
 ]
