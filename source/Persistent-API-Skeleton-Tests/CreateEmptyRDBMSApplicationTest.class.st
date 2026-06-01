@@ -1,6 +1,6 @@
 Class {
 	#name : 'CreateEmptyRDBMSApplicationTest',
-	#superclass : 'TestCase',
+	#superclass : 'LaunchpadTest',
 	#category : 'Persistent-API-Skeleton-Tests',
 	#package : 'Persistent-API-Skeleton-Tests'
 }

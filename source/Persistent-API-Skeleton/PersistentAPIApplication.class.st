@@ -140,18 +140,16 @@ PersistentAPIApplication >> basicStop [
 ]
 
 { #category : 'private - activation/deactivation' }
-PersistentAPIApplication >> configureAllowedOriginsTo: api [
+PersistentAPIApplication >> configureAllowedOrigins [
 
-  self stargateConfiguration allowedOrigins value: api
+  self withAPIDo: [ :api | self stargateConfiguration allowedOrigins value: api ]
 ]
 
 { #category : 'private - activation/deactivation' }
 PersistentAPIApplication >> createAPI [
 
-  | api |
-  api := super createAPI.
-  self configureAllowedOriginsTo: api.
-  ^ api
+  super createAPI.
+  self configureAllowedOrigins
 ]
 
 { #category : 'private - activation/deactivation' }
